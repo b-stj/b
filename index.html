@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Christmas Bible Verses</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia, serif;
+
+            background: linear-gradient(
+                135deg,
+                #063b2c,
+                #145c3b,
+                #092d24
+            );
+
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            width: 80%;
+            max-width: 600px;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid #d4af37;
+            border-radius: 20px;
+
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .quote {
+            font-size: 26px;
+            line-height: 1.6;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .citation {
+            color: #ffd700;
+            font-style: italic;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <p class="quote" id="quote"></p>
+
+        <p class="citation" id="citation"></p>
+
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                text: "For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
+                citation: "Luke 2:11 (KJV)"
+            },
+            {
+                text: "Glory to God in the highest, and on earth peace, good will toward men.",
+                citation: "Luke 2:14 (KJV)"
+            },
+            {
+                text: "And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins.",
+                citation: "Matthew 1:21 (KJV)"
+            },
+            {
+                text: "Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel.",
+                citation: "Matthew 1:23 (KJV)"
+            },
+            {
+                text: "For God so loved the world, that he gave his only begotten Son.",
+                citation: "John 3:16 (KJV)"
+            },
+            {
+                text: "The Word was made flesh, and dwelt among us.",
+                citation: "John 1:14 (KJV)"
+            },
+            {
+                text: "For unto us a child is born, unto us a son is given.",
+                citation: "Isaiah 9:6 (KJV)"
+            },
+            {
+                text: "Thanks be unto God for his unspeakable gift.",
+                citation: "2 Corinthians 9:15 (KJV)"
+            }
+        ];
+
+        // Get the verse number from the URL
+        const params = new URLSearchParams(window.location.search);
+        const number = parseInt(params.get("q"));
+
+        // Display the selected verse
+        if (Number.isInteger(number) && number >= 1 && number <= quotes.length) {
+
+            document.getElementById("quote").textContent =
+                '"' + quotes[number - 1].text + '"';
+
+            document.getElementById("citation").textContent =
+                "— " + quotes[number - 1].citation;
+
+        } else {
+
+            document.getElementById("quote").textContent =
+                "A Christmas message of faith, hope and love.";
+
+            document.getElementById("citation").textContent = "";
+
+        }
+    </script>
+
+</body>
+</html>
