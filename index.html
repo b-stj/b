@@ -9,8 +9,9 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
-            height: 100vh;
+            padding: 30px 15px;
+            min-height: 100vh;
+            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,9 +29,10 @@
 
         .container {
             text-align: center;
-            padding: 40px;
-            width: 80%;
+            padding: 30px;
+            width: 100%;
             max-width: 600px;
+            box-sizing: border-box;
 
             background: rgba(255, 255, 255, 0.08);
             border: 2px solid #d4af37;
@@ -40,10 +42,11 @@
         }
 
         .quote {
-            font-size: 26px;
+            font-size: clamp(20px, 4vw, 26px);
             line-height: 1.6;
-            margin: 30px 0;
+            margin: 20px 0;
             color: white;
+            overflow-wrap: break-word;
         }
 
         .citation {
