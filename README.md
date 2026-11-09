@@ -1,2 +1,2 @@
 # b
-Frases para el belén.
+Citas para el belén.
