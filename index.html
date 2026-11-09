@@ -7,52 +7,77 @@
     <title>Citas bíblicas del Belén</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            padding: 30px 15px;
+            padding: 30px 16px;
             min-height: 100vh;
-            box-sizing: border-box;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-family: Georgia, serif;
-
-            background: linear-gradient(
-                135deg,
-                #063b2c,
-                #145c3b,
-                #092d24
-            );
-
-            color: white;
+            justify-content: center;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #edf0fa;
+            background:
+                linear-gradient(90deg, #080e22, #101d3c 50%, #080e22);
+            overflow-x: hidden;
         }
 
         .container {
-            text-align: center;
-            padding: 30px;
+            position: relative;
+            isolation: isolate;
             width: 100%;
-            max-width: 600px;
-            box-sizing: border-box;
-
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid #d4af37;
-            border-radius: 20px;
-
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+            max-width: 760px;
+            padding: clamp(35px, 7vw, 75px);
+            text-align: center;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,.01),
+                rgba(255,255,255,.025) 50%,
+                rgba(255,255,255,.01)
+            );
+            border: 1px solid rgba(195,174,126,.45);
+            border-radius: 45px 45px 45px 45px;
+            box-shadow:
+                0 30px 90px rgba(0,0,0,.5),
+                inset 0 1px rgba(255,255,255,.1);
+            backdrop-filter: blur(18px);
         }
 
+        .container::before {
+            content: "✧  ·  ✦  ·  ✧";
+            display: block;
+            font-size: 30px;
+            letter-spacing: 12px;
+            color: #e3c47f;
+            margin-bottom: 35px;
+            text-shadow: 0 0 25px rgba(227,196,127,.65);
+        }
+
+
         .quote {
-            font-size: clamp(20px, 4vw, 26px);
-            line-height: 1.6;
-            margin: 20px 0;
-            color: white;
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(23px, 4.5vw, 35px);
+            line-height: 1.7;
+            font-weight: 400;
+            color: #f6f1e8;
+            margin: 10px 0 35px;
             overflow-wrap: break-word;
+            text-wrap: pretty;
         }
 
         .citation {
-            color: #ffd700;
-            font-style: italic;
-            font-size: 18px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            color: #e3c47f;
+            padding: 13px 24px;
+            border: 1px solid rgba(227,196,127,.4);
+            border-radius: 3px;
         }
     </style>
 </head>
@@ -91,11 +116,11 @@
             },
             {
                 text: "Sucedió en aquellos días que salió un decreto del emperador Augusto, ordenando que se empadronase todo el Imperio. Este primer empadronamiento se hizo siendo Cirino gobernador de Siria. Y todos iban a empadronarse, cada cual a su ciudad. También José, por ser de la casa y familia de David, subió desde la ciudad de Nazaret, en Galilea, a la ciudad de David, que se llama Belén, en Judea, para empadronarse con su esposa María, que estaba encinta. Y sucedió que, mientras estaban allí, le llegó a ella el tiempo del parto y dio a luz a su hijo primogénito, lo envolvió en pañales y lo recostó en un pesebre, porque no había sitio para ellos en la posada.",
-                citation: "Lc 2,1-7 MUY LARGA??? INCLUYE OTRAS (Lc 2,7b)"
+                citation: "Lc 2,1-7"
             },
             {
                 text: "Y sucedió que, mientras estaban allí, le llegó a ella el tiempo del parto y dio a luz a su hijo primogénito, lo envolvió en pañales y lo recostó en un pesebre, porque no había sitio para ellos en la posada.",
-                citation: "Lc 2,6-7 (Lc 2,6-7a)"
+                citation: "Lc 2,6-7"
             },
             {
                 text: "En aquella misma región había unos pastores que pasaban la noche al aire libre, velando por turno su rebaño. De repente un ángel del Señor se les presentó; la gloria del Señor los envolvió de claridad, y se llenaron de gran temor. El ángel les dijo: «No temáis, os anuncio una buena noticia que será de gran alegría para todo el pueblo: hoy, en la ciudad de David, os ha nacido un Salvador, el Mesías, el Señor. Y aquí tenéis la señal: encontraréis un niño envuelto en pañales y acostado en un pesebre». De pronto, en torno al ángel, apareció una legión del ejército celestial, que alababa a Dios diciendo: «Gloria a Dios en el cielo, y en la tierra paz a los hombres de buena voluntad». Y sucedió que, cuando los ángeles se marcharon al cielo, los pastores se decían unos a otros: «Vayamos, pues, a Belén, y veamos lo que ha sucedido y que el Señor nos ha comunicado». Fueron corriendo y encontraron a María y a José, y al niño acostado en el pesebre. Al verlo, contaron lo que se les había dicho de aquel niño. Todos los que lo oían se admiraban de lo que les habían dicho los pastores. María, por su parte, conservaba todas estas cosas, meditándolas en su corazón. Y se volvieron los pastores dando gloria y alabanza a Dios por todo lo que habían oído y visto, conforme a lo que se les había dicho.",
@@ -119,15 +144,13 @@
             },
             {
                 text: "Cuando ellos se retiraron, el ángel del Señor se apareció en sueños a José y le dijo: «Levántate, toma al niño y a su madre y huye a Egipto; quédate allí hasta que yo te avise, porque Herodes va a buscar al niño para matarlo». José se levantó, tomó al niño y a su madre, de noche, se fue a Egipto y se quedó hasta la muerte de Herodes para que se cumpliese lo que dijo el Señor por medio del profeta: «De Egipto llamé a mi hijo». Al verse burlado por los magos, Herodes montó en cólera y mandó matar a todos los niños de dos años para abajo, en Belén y sus alrededores, calculando el tiempo por lo que había averiguado de los magos. Entonces se cumplió lo dicho por medio del profeta Jeremías: «Un grito se oye en Ramá, llanto y lamentos grandes; es Raquel que llora por sus hijos y rehúsa el consuelo, porque ya no viven». Cuando murió Herodes, el ángel del Señor se apareció de nuevo en sueños a José en Egipto y le dijo: «Levántate, coge al niño y a su madre y vuelve a la tierra de Israel, porque han muerto los que atentaban contra la vida del niño». Se levantó, tomó al niño y a su madre y volvió a la tierra de Israel. Pero al enterarse de que Arquelao reinaba en Judea como sucesor de su padre Herodes tuvo miedo de ir allá. Y avisado en sueños se retiró a Galilea y se estableció en una ciudad llamada Nazaret. Así se cumplió lo dicho por medio de los profetas, que se llamaría nazareno.",
-                citation: "Mt 2,13-23 MUY LARGA??? INCLUYE LA ANTERIOR (Mt 2,13-15)"
+                citation: "Mt 2,13-23"
             }
         ];
 
-        // Get the verse number from the URL
         const params = new URLSearchParams(window.location.search);
         const number = parseInt(params.get("q"));
 
-        // Display the selected verse
         if (Number.isInteger(number) && number >= 1 && number <= quotes.length) {
 
             document.getElementById("quote").textContent =
@@ -139,7 +162,7 @@
         } else {
 
             document.getElementById("quote").textContent =
-                "Versiculos explicativos del belén.";
+                "Versículos explicativos del Belén.";
 
             document.getElementById("citation").textContent = "";
 
